@@ -161,6 +161,10 @@ namespace net.satania.BlendshapeBaker
             SkinnedMeshRenderer.sharedMesh = clone;
             EditorUtility.SetDirty(SkinnedMeshRenderer);
 
+            //ブレンドシェイプのウェイトが0以外だった場合は0に変更
+            if (SkinnedMeshRenderer.GetBlendShapeWeight(BlendshapeIndex) > 0)
+                SkinnedMeshRenderer.SetBlendShapeWeight(BlendshapeIndex, 0);
+
             Debug.Log("完了しました！");
         }
 
